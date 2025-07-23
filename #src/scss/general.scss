@@ -20,7 +20,26 @@ body {
 			opacity: 0;
 		}
 	}
+	&._is-ios {
+		.intro:before {
+			background: #fa8828;
+			border-radius: 157.0206rem;
+			content: "";
+			filter: blur(287.299987793px);
+			height: 157.0206rem;
+			left: 50%;
+			position: absolute;
+			top: -31.6rem;
+			transform: translate3d(-50%, 0, 0) rotate(87.93deg);
+			width: 35.4419rem;
+			@media (min-width: 768px) {
+				top: 50%;
+				transform: translate3d(-50%, -50%, 0) rotate(87.93deg);
+			}
+		}
+	}
 }
+
 .promo-page {
 	font-size: 2rem;
 	padding-top: var(--main-offset);

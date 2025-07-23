@@ -58,6 +58,21 @@ body::-webkit-scrollbar-thumb {
   opacity: 0;
 }
 
+.body._is-ios .intro:before {
+  background: #fa8828;
+  border-radius: 157.0206rem;
+  content: "";
+  -webkit-filter: blur(287.299987793px);
+  filter: blur(287.299987793px);
+  height: 157.0206rem;
+  left: 50%;
+  position: absolute;
+  top: -31.6rem;
+  -webkit-transform: translate3d(-50%, 0, 0) rotate(87.93deg);
+  transform: translate3d(-50%, 0, 0) rotate(87.93deg);
+  width: 35.4419rem;
+}
+
 .promo-page {
   font-size: 2rem;
   padding-top: var(--main-offset);
@@ -720,6 +735,12 @@ body::-webkit-scrollbar-thumb {
 
   .preloader__logo {
     width: 330px;
+  }
+
+  .body._is-ios .intro:before {
+    top: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(87.93deg);
+    transform: translate3d(-50%, -50%, 0) rotate(87.93deg);
   }
 
   .promo-page h1,
