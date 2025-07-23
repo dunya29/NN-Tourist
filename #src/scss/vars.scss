@@ -1,0 +1,20 @@
+:root {
+    --font-family: "Onest", sans-serif;
+    --font-family-secondary: "Akrobat", sans-serif;
+    --main-offset: 7.2rem;
+}
+$bp1: 1920px;
+$bp2: 1640px;
+$bp3: 1200px;
+$bp4: 768px;
+$bp5: 400px;
+@media (min-width: $bp4) {
+    :root {
+        --main-offset: 11.9rem;
+    }
+}
+@media (min-width: $bp3) {
+    :root {
+        --main-offset: 15.1rem;
+    }
+}

@@ -1,0 +1,72 @@
+.footer {
+    &__inner {
+        padding-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    &__copy,
+    &__dev {
+        font-size: 1.4rem;
+        color: #808080;
+    }
+    &__dev {
+        display: flex;
+        align-items: center;
+        a {
+            flex-shrink: 0;
+            margin-left: 1rem;
+            &:hover {
+                svg {
+                    fill: #fff;
+                }
+            }
+        }
+        svg {
+            fill: #808080;
+            width: 7rem;
+            height: 2rem;
+            transition: all 0.3s linear;
+        }
+    }
+    @media (min-width: $bp4) {
+        &__inner {
+            padding-bottom: 5.6rem;
+        }
+        &__copy,
+        &__dev {
+            font-size: 1.6rem;
+        }
+        &__dev {
+            svg {
+                width: 8rem;
+                height: 3rem;
+            }
+        }
+    }
+    @media (min-width: $bp3) {
+        &__copy,
+        &__dev {
+            font-size: 1.8rem;
+        }
+    }
+    @media (min-width: $bp2) {
+        &__copy,
+        &__dev {
+            font-size: 2rem;
+        }
+    }
+    @media (min-width: $bp1) {
+        &__copy,
+        &__dev {
+            font-size: 2.4rem;
+        }
+        &__dev {
+            svg {
+                width: 10rem;
+                height: 3.4rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,225 @@
+@import "vars";
+@import "preloader";
+@import "general";
+@import "swiper";
+@import "header";
+@import "promo-city";
+@import "footer";
+.social {
+    .h2 {
+        font-weight: 500;
+        line-height: 1.2;
+        text-transform: none;
+        text-align: center;
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 4rem;
+    }
+    &__img {
+        width: 100%;
+        max-width: 31.2rem;
+        object-fit: contain;
+        object-position: center top;
+        margin: 0 auto;
+    }
+    @media (min-width: $bp4) {
+        &__img {
+            width: 31.2rem;
+            max-width: 100%;
+        }
+    }
+    @media (min-width: $bp3) {
+        &__inner {
+            gap: 6rem;
+        }
+        &__img {
+            width: 39.2rem;
+        }
+    }
+    @media (min-width: $bp2) {
+        &__inner {
+            gap: 8rem;
+        }
+    }
+}
+.promo-intro {
+    .intro__wrapper,
+    .intro__inner {
+        height: 100%;
+    }
+    .intro__wrapper {
+        border-radius: 1.6rem;
+    }
+    .media-cover {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        &:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            background: linear-gradient(0deg, #000 5.51%, rgba(0, 0, 0, 0) 87.75%);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    .h1 {
+        max-width: 1270px;
+    }
+    .intro__inner {
+        width: 100%;
+        padding: 1rem;
+        gap: 3rem;
+        justify-content: space-between;
+        z-index: 2;
+        background: none;
+    }
+    &__subtitle {
+        text-align: right;
+        margin-left: auto;
+    }
+    @media (min-width: $bp4) {
+        .intro__wrapper {
+            border-radius: 2.6rem;
+        }
+        .intro__inner {
+            padding: 1.5rem 2rem;
+        }
+    }
+    @media (min-width: $bp2) {
+        .intro__wrapper {
+            border-radius: 4.2rem;
+        }
+        .media-cover {
+            &:after {
+                opacity: 1;
+                background: linear-gradient(90deg, #090807 0, #0000);
+            }
+        }
+    }
+}
+.promo-about {
+    .sec-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-bottom: 2rem;
+    }
+    @media (min-width: $bp4) {
+        .sec-top {
+            .h3 {
+                max-width: 600px;
+            }
+        }
+        &__content {
+            column-count: 2;
+            column-gap: 2rem;
+        }
+    }
+    @media (min-width: $bp3) {
+        .sec-top {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+    }
+    @media (min-width: $bp2) {
+        .sec-top {
+            grid-template-columns: 1fr 2fr;
+            .h3 {
+                max-width: 75%;
+            }
+        }
+        &__content {
+            margin-left: calc(100% / 6 * 2 + 1rem);
+        }
+    }
+    @media (min-width: $bp1) {
+        .sec-top {
+            .h3 {
+                max-width: 70%;
+            }
+        }
+    }
+}
+.promo-merch {
+    overflow: hidden;
+    padding-bottom: 6.2rem;
+    @media (min-width: $bp4) {
+        padding-bottom: 8.8rem;
+    }
+    @media (min-width: $bp3) {
+        padding-bottom: 13rem;
+    }
+    @media (min-width: $bp2) {
+        padding-bottom: 16rem;
+    }
+    @media (min-width: $bp1) {
+        padding-bottom: 21rem;
+    }
+    .swiper {
+        perspective: 1000px;
+        overflow: visible;
+    }
+    .swiper-wrapper,
+    .swiper-slide {
+        transform-style: preserve-3d;
+    }
+    .sec-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    &__item {
+        .media-cover {
+            padding-top: 100%;
+            border-radius: 1.6rem;
+        }
+    }
+    @media (min-width: $bp4) {
+        .sec-top {
+            gap: 3rem;
+            .rte {
+                column-count: 2;
+                column-gap: 2rem;
+            }
+        }
+        &__item {
+            .media-cover {
+                border-radius: 2.6rem;
+            }
+        }
+    }
+    @media (min-width: $bp2) {
+        &__item {
+            .media-cover {
+                border-radius: 4.2rem;
+            }
+        }
+        .sec-top {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            .h2 {
+                max-width: 480px;
+            }
+        }
+    }
+    @media (min-width: $bp1) {
+        .sec-top {
+            .h2 {
+                max-width: 100%;
+            }
+        }
+    }
+}
+.promo-merch + .social {
+    margin-top: 0 !important;
+}
