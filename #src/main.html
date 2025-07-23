@@ -129,7 +129,18 @@
                 <!--main-promo-->
                 <section class="main-promo">
                     <div class="media-cover">
-                        <img src="img/main-promo__img.jpg" alt>
+                        <picture class="card__content__bg">
+                            <source media="(min-width:1920px)" srcset="img/main-promo.webp" type="image/webp">
+                            <source media="(min-width:1920px)" srcset="img/main-promo.jpg">
+                            <source media="(min-width:1640px)" srcset="img/main-promo-1640.webp"type="image/webp">
+                            <source media="(min-width:1640px)" srcset="img/main-promo-1640.jpg" >
+                            <source media="(min-width:1200px)" srcset="img/main-promo-1200.webp" type="image/webp">
+                            <source media="(min-width:1200px)" srcset="img/main-promo-1200.jpg">
+                            <source media="(min-width:768px)" srcset="img/main-promo-768.webp" type="image/webp">
+                            <source media="(min-width:768px)" srcset="img/main-promo-768.jpg">
+                            <source type="image/webp" srcset="img/main-promo-360.webp">
+                            <img loading="lazy" src="img/main-promo-360.jpg" alt title>
+                        </picture>
                     </div>
                     <div class="main-promo__inner">
                         <h2 class="h2">Тур нижегородских закатов&nbsp;2025</h2>
@@ -178,7 +189,6 @@
                         </div>
                         <div class="card__content">
                             <picture class="card__content__bg">
-
                                 <source type="image/png" media="(min-width:1920px)" srcset="assets/content/assets/crops/1920-f30483a25058b181d4e10877abc8a1a0.webp 1x">
                                 <source type="image/png" media="(min-width:1640px)" srcset="assets/content/assets/crops/1920-dc125fa92bb0c489ecfef81a266f6da0.webp 1x">
                                 <source type="image/png" media="(min-width:1200px)" srcset="assets/content/assets/crops/1920-36d973a05e0ff7437988f742065dd7bf.webp 1x">
@@ -809,7 +819,7 @@
         </footer>
         <link href="assets/templates/nn800/css/common.css" rel="stylesheet">
         <link href="assets/templates/nn800/css/main-page.css" rel="stylesheet">
-         <link rel="stylesheet" href="css/main-promo.css">
+        <link rel="stylesheet" href="css/main-promo.css">
         <script src="assets/templates/nn800/js/app.js" async></script>
 
     </body></html>

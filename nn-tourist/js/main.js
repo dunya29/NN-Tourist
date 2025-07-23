@@ -38,8 +38,6 @@ if (tippy.length > 0) {
     let timeOut
     let docW = document.documentElement.clientWidth
     function move(item) {
-        console.log(item.getBoundingClientRect().right)
-        let winW = window.innerWidth
         let top = item.getBoundingClientRect().top
         let right = item.getBoundingClientRect().right
         tippyContent.style.top = top - tippyContent.offsetHeight + "px"
@@ -61,8 +59,6 @@ if (tippy.length > 0) {
         })
         item.addEventListener("mouseleave", leave)
     })
-    window.addEventListener("resize", leave)
-    window.addEventListener("scroll", leave)
 }
 //speakers swiper
 const merchSwiper = document.querySelector('.promo-merch .swiper')
@@ -74,15 +70,33 @@ if (merchSwiper) {
         observeParents: true,
         watchSlidesProgress: true,
         breakpoints: {
-            1200: {
+            768: {
                 slidesPerView: 2,
                 spaceBetween: 20,
             },
-            768: {
+            480: {
                 slidesPerView: 1.335,
                 spaceBetween: 16,
             },
         },
         speed: 800,
     });
+}
+const itemTilt = document.querySelectorAll('.item-tilt')
+if (itemTilt.length) {
+    itemTilt.forEach(item => {
+        item.addEventListener("click", e => {
+            if (window.innerWidth < 1200 && item.querySelector(".item-tilt__images").contains(e.target)) {
+                itemTilt.forEach(el => {
+                    if (el != item) {
+                        el.classList.remove("show")
+                    }
+                })
+                !item.classList.contains("show") ? item.classList.add("show") : item.classList.remove("show")
+            }
+        })
+    })
+    window.addEventListener("resize", () => {
+        itemTilt.forEach(item => item.classList.remove("show"))
+    })
 }

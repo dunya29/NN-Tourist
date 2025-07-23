@@ -72,7 +72,7 @@
         }
     }
     .h1 {
-        max-width: 1270px;
+       max-width:400px;
     }
     .intro__inner {
         width: 100%;
@@ -93,6 +93,14 @@
         .intro__inner {
             padding: 1.5rem 2rem;
         }
+        .h1 {
+            max-width: 600px;
+        }
+    }
+     @media (min-width: $bp3) {
+        .h1 {
+            max-width: 75%;
+        }
     }
     @media (min-width: $bp2) {
         .intro__wrapper {
@@ -112,13 +120,11 @@
         grid-template-columns: 1fr;
         gap: 3rem;
         margin-bottom: 2rem;
+        .h3 {
+            max-width: 600px;
+        }
     }
     @media (min-width: $bp4) {
-        .sec-top {
-            .h3 {
-                max-width: 600px;
-            }
-        }
         &__content {
             column-count: 2;
             column-gap: 2rem;
@@ -126,19 +132,21 @@
     }
     @media (min-width: $bp3) {
         .sec-top {
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-    }
-    @media (min-width: $bp2) {
-        .sec-top {
             grid-template-columns: 1fr 2fr;
+            gap: 2rem;
             .h3 {
-                max-width: 75%;
+                max-width: 640px;
             }
         }
         &__content {
             margin-left: calc(100% / 6 * 2 + 1rem);
+        }
+    }
+    @media (min-width: $bp2) {
+        .sec-top {
+            .h3 {
+                max-width: 840px;
+            }
         }
     }
     @media (min-width: $bp1) {
@@ -152,18 +160,6 @@
 .promo-merch {
     overflow: hidden;
     padding-bottom: 6.2rem;
-    @media (min-width: $bp4) {
-        padding-bottom: 8.8rem;
-    }
-    @media (min-width: $bp3) {
-        padding-bottom: 13rem;
-    }
-    @media (min-width: $bp2) {
-        padding-bottom: 16rem;
-    }
-    @media (min-width: $bp1) {
-        padding-bottom: 21rem;
-    }
     .swiper {
         perspective: 1000px;
         overflow: visible;
@@ -184,6 +180,7 @@
         }
     }
     @media (min-width: $bp4) {
+        padding-bottom: 8.8rem;
         .sec-top {
             gap: 3rem;
             .rte {
@@ -197,12 +194,8 @@
             }
         }
     }
-    @media (min-width: $bp2) {
-        &__item {
-            .media-cover {
-                border-radius: 4.2rem;
-            }
-        }
+    @media (min-width: $bp3) {
+        padding-bottom: 13rem;
         .sec-top {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -212,7 +205,16 @@
             }
         }
     }
+    @media (min-width: $bp2) {
+        padding-bottom: 16rem;
+        &__item {
+            .media-cover {
+                border-radius: 4.2rem;
+            }
+        }
+    }
     @media (min-width: $bp1) {
+        padding-bottom: 21rem;
         .sec-top {
             .h2 {
                 max-width: 100%;
@@ -222,4 +224,4 @@
 }
 .promo-merch + .social {
     margin-top: 0 !important;
-}
+} 

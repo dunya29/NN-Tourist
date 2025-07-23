@@ -462,7 +462,7 @@ body::-webkit-scrollbar-thumb {
   transform-style: preserve-3d;
 }
 
-.item-tilt:hover .item-tilt__images {
+.item-tilt.show .item-tilt__images {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
@@ -645,7 +645,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .promo-intro .h1 {
-  max-width: 1270px;
+  max-width: 400px;
 }
 
 .promo-intro .intro__inner {
@@ -669,6 +669,10 @@ body::-webkit-scrollbar-thumb {
   grid-template-columns: 1fr;
   gap: 3rem;
   margin-bottom: 2rem;
+}
+
+.promo-about .sec-top .h3 {
+  max-width: 600px;
 }
 
 .promo-merch {
@@ -701,6 +705,12 @@ body::-webkit-scrollbar-thumb {
 
 .promo-merch + .social {
   margin-top: 0 !important;
+}
+
+@media (min-width: 480px) {
+  .promo-cities__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 768px) {
@@ -774,7 +784,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   .promo-cities__items {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.6rem 1.6rem;
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -783,6 +793,19 @@ body::-webkit-scrollbar-thumb {
 
   .item-tilt__images .media-cover {
     border-radius: 2.6rem;
+  }
+
+  .item-city:nth-child(3),
+  .item-city:nth-child(8) {
+    grid-column-start: 1;
+  }
+
+  .item-city:nth-child(4) {
+    grid-area: 1/3/2/4;
+  }
+
+  .item-city:nth-child(9) {
+    grid-area: 3/3/4/4;
   }
 
   .item-city .item-tippy {
@@ -827,7 +850,7 @@ body::-webkit-scrollbar-thumb {
     padding: 1.5rem 2rem;
   }
 
-  .promo-about .sec-top .h3 {
+  .promo-intro .h1 {
     max-width: 600px;
   }
 
@@ -897,30 +920,27 @@ body::-webkit-scrollbar-thumb {
   }
 
   .promo-cities__items {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 3.4rem 2rem;
+  }
+
+  .item-tilt:hover .item-tilt__images {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
 
   .item-city:nth-child(3),
   .item-city:nth-child(8) {
-    grid-column-start: 1;
+    grid-column-start: auto;
   }
 
-  .item-city:nth-child(4) {
-    grid-area: 1/3/2/4;
-  }
-
+  .item-city:nth-child(4),
   .item-city:nth-child(9) {
-    grid-area: 3/3/4/4;
+    grid-area: auto;
   }
 
   .item-city--large .item-city__images .media-cover {
     padding-top: 72.6%;
-  }
-
-  .item-city--toBottom {
-    -ms-flex-item-align: end;
-    align-self: end;
   }
 
   .item-city__images {
@@ -944,13 +964,35 @@ body::-webkit-scrollbar-thumb {
     width: 39.2rem;
   }
 
+  .promo-intro .h1 {
+    max-width: 75%;
+  }
+
   .promo-about .sec-top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 2rem;
+  }
+
+  .promo-about .sec-top .h3 {
+    max-width: 640px;
+  }
+
+  .promo-about__content {
+    margin-left: calc(33.3333333333% + 1rem);
   }
 
   .promo-merch {
     padding-bottom: 13rem;
+  }
+
+  .promo-merch .sec-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+
+  .promo-merch .sec-top .h2 {
+    max-width: 480px;
   }
 }
 
@@ -1046,16 +1088,8 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(90deg, #090807 0, rgba(0, 0, 0, 0));
   }
 
-  .promo-about .sec-top {
-    grid-template-columns: 1fr 2fr;
-  }
-
   .promo-about .sec-top .h3 {
-    max-width: 75%;
-  }
-
-  .promo-about__content {
-    margin-left: calc(33.3333333333% + 1rem);
+    max-width: 840px;
   }
 
   .promo-merch {
@@ -1064,16 +1098,6 @@ body::-webkit-scrollbar-thumb {
 
   .promo-merch__item .media-cover {
     border-radius: 4.2rem;
-  }
-
-  .promo-merch .sec-top {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-  }
-
-  .promo-merch .sec-top .h2 {
-    max-width: 480px;
   }
 }
 
@@ -1088,16 +1112,6 @@ body::-webkit-scrollbar-thumb {
 
   .promo-cities__items {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .item-city:nth-child(3),
-  .item-city:nth-child(8) {
-    grid-column-start: auto;
-  }
-
-  .item-city:nth-child(4),
-  .item-city:nth-child(9) {
-    grid-area: auto;
   }
 
   .item-city--large .item-city__images .media-cover {

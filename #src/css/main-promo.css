@@ -17,6 +17,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .main-promo .media-cover:after {
@@ -30,12 +31,23 @@
   left: 0;
 }
 
+.main-promo .media-cover img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 .main-promo .h2 {
   font-family: "Akrobat", sans-serif;
   font-size: 4rem;
   font-weight: 900;
   line-height: 94%;
   text-transform: uppercase;
+  max-width: 400px;
 }
 
 .main-promo__inner {
@@ -133,6 +145,7 @@
 
   .main-promo .h2 {
     font-size: 6.4rem;
+    max-width: 900px;
   }
 
   .main-promo__btn {
