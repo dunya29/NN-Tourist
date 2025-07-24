@@ -34,30 +34,57 @@ window.addEventListener("scroll", animate)
 // tippy
 const tippy = document.querySelectorAll('.tippy')
 const tippyContent = document.querySelector(".tippy-content")
-if (tippy.length > 0) {
+if (tippy.length && tippyContent) {
     let timeOut
-    let docW = document.documentElement.clientWidth
-    function move(item) {
-        let top = item.getBoundingClientRect().top
-        let right = item.getBoundingClientRect().right
-        tippyContent.style.top = top - tippyContent.offsetHeight + "px"
-        tippyContent.style.right = docW - right + 'px'
+    function enter(item) {
+        clearTimeout(timeOut)
+        if (!tippyContent.classList.contains("show")) {
+            let docW = document.documentElement.clientWidth
+            tippyContent.querySelector(".tippy-content__inner").innerHTML = item.querySelector(".tippy__content").innerHTML
+            let top = item.getBoundingClientRect().top
+            let right = item.getBoundingClientRect().right
+            let topPos = top - tippyContent.offsetHeight
+            tippyContent.style.top = scrollPos() + topPos + "px"
+            tippyContent.style.right = docW - right + 'px'
+            tippyContent.classList.add("show")
+            if (tippyContent.getBoundingClientRect().top < 0) {
+                window.scrollTo({
+                    top: scrollPos() + tippyContent.getBoundingClientRect().top - 20,
+                    left: 0,
+                    behavior: "smooth",
+                })
+            }
+
+        }
     }
     function leave() {
-        tippyContent.classList.remove("show")
         timeOut = setTimeout(() => {
-            tippyContent.querySelector(".tippy-content__inner").innerHTML = ""
+            tippyContent.classList.remove("show")
+            timeOut = setTimeout(() => {
+                tippyContent.querySelector(".tippy-content__inner").innerHTML = ""
+            }, 300);
         }, 300);
     }
     tippy.forEach(item => {
-        item.addEventListener("mouseenter", () => {
-            clearTimeout(timeOut)
-            docW = document.documentElement.clientWidth
-            tippyContent.querySelector(".tippy-content__inner").innerHTML = item.querySelector(".tippy__content").innerHTML
-            tippyContent.classList.add("show")
-            move(item)
-        })
-        item.addEventListener("mouseleave", leave)
+        item.addEventListener("mouseenter", () => enter(item));
+        item.addEventListener("mouseleave", leave);
+        tippyContent.addEventListener("mouseenter", () => enter(item));
+        tippyContent.addEventListener("mouseleave", leave);
+        item.addEventListener("touchstart", (event) => {
+            event.preventDefault();
+            if (tippyContent.classList.contains("show")) {
+                leave();
+            } else {
+                enter(item);
+                let handleClickOutside = (e) => {
+                    if (!item.contains(e.target) && !tippyContent.contains(e.target)) {
+                        leave();
+                        document.removeEventListener('click', handleClickOutside);
+                    }
+                };
+                document.addEventListener('click', handleClickOutside);
+            }
+        }, { passive: false });
     })
 }
 //speakers swiper
